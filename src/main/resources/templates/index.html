@@ -1,0 +1,38 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/index.css}" />
+
+    <title>What's for Dinner? - IBM Cloud Architecture - Microservices Reference Application for Netflix OSS</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+    <h1>What's for Dinner?</h1>
+    <h3>IBM Cloud Architecture - Microservices Reference Application for Netflix OSS</h3>
+
+    <p>Appetizers</p>
+    <ul>
+      <li th:each="opts1 : ${appetizerOptions}">
+        <p th:text="${{opts1}}" />
+      </li>
+    </ul>
+
+    <p>Entrees</p>
+    <ul>
+      <li th:each="opts2 : ${entreeOptions}">
+        <p th:text="${{opts2}}" />
+      </li>
+    </ul>
+
+    <p>Desserts</p>
+    <ul>
+      <li th:each="opts3 : ${dessertOptions}">
+        <p th:text="${{opts3}}" />
+      </li>
+    </ul>
+
+    <h4>Trace ID: <!--<a th:href="@{/zipkin-tracing/traces/{traceId}(traceId=${TraceId})}">--><span th:text="${TraceId}">UNSET</span><!--</a>--></h4>
+    <!-- HREF removed for now until proxying through Zuul can be accomplished, which is required to have dynamic link to Zipkin UI -->
+
+</body>
+</html>
